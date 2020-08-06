@@ -12,6 +12,7 @@ public class RoomDAOImpl implements RoomDAO{
 	private static RoomDAOImpl rdao = null;
 	private Map<Integer,Room> roomTable = new HashMap<Integer, Room>();
 	private int count = 1;
+	
 	private RoomDAOImpl(){
 		
 	}
