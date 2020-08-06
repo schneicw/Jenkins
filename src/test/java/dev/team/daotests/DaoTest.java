@@ -21,7 +21,7 @@ import dev.team.enitities.Room;
 @TestMethodOrder(OrderAnnotation.class)
 public class DaoTest {
 
-	public static RoomDAO rdao = new RoomDAOImpl();
+	public static RoomDAO rdao = RoomDAOImpl.getRoomDAO();
 	
 	@BeforeAll
 	static void setUp() {
@@ -39,7 +39,7 @@ public class DaoTest {
 		rdao.createRoom(room1);
 		rdao.createRoom(room2);
 		
-		Assertions.assertNotEquals(0, room.getrId());		
+		Assertions.assertNotEquals(0, room1.getrId());		
 	}
 	
 	@Test
@@ -53,15 +53,15 @@ public class DaoTest {
 	@Test
 	@Order(2)
 	void getRoomByRid() {
-		Room room = rdao.getRoomByRid(1);
+		Room room = rdao.getRoomByrId(1);
 		
-		Assertions.assertEquals(1, room.getRid());
+		Assertions.assertEquals(1, room.getrId());
 	}
 	
 	@Test
 	@Order(2)
 	void updateRoom() {
-		Room room = rdao.getRoomByRid(1);
+		Room room = rdao.getRoomByrId(1);
 		
 		room.setRent(900);
 		rdao.updateRoom(room);
